@@ -7,10 +7,11 @@ public class BubbleSort implements ISort
 	public  static <T extends Comparable<T>> void insertionSort(T[] source,int startIndex,int endIndex)
 	{
 		boolean swapped = true;
-		for (int i = startIndex; i < endIndex && swapped; endIndex--)
+		int i = endIndex;
+		while (i > startIndex && swapped)
 		{
 			swapped = false;
-			for (int j = i; j < endIndex; j++)
+			for (int j = startIndex; j < i; j++)
 			{
 				if (source[j+1].compareTo(source[j]) < 0)
 				{
@@ -18,6 +19,7 @@ public class BubbleSort implements ISort
 					swapped = true;
 				}
 			}
+			i--;
 		}
 	}
 	
