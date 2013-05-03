@@ -54,6 +54,7 @@ public class SortMain {
 		test(new QuickSort(),source.clone());
 		test(new BidirectionalScannQuickSort(),source.clone());
 		test(new CombineQuickSortInsertionSort(),source.clone());
+		test(new ShellSort(),source.clone());
 		test(new BubbleSort(),source.clone());
 		test(new CocktailSort(),source.clone());
 		test(new SelectionSort(),source.clone());
