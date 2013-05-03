@@ -4,13 +4,13 @@ import com.colobu.algorithm.util.SwapUtil;
 
 public class CombineQuickSortInsertionSort implements ISort {
 
-	public static int SIZE =10;
+	private static final int INSERTIONSORT_THRESHOLD = 7;
 	
 	public static <T extends Comparable<T>> void quickSort(T[] source,int startIndex,int endIndex)
 	{		
 		if (source == null)
 			return;
-		if (endIndex-startIndex < SIZE)
+		if (endIndex-startIndex < INSERTIONSORT_THRESHOLD)
 		{
 			InsertionSort.insertionSort(source,startIndex,endIndex);
 			return;
