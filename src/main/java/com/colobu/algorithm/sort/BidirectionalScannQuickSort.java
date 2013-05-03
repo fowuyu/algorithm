@@ -4,16 +4,16 @@ import com.colobu.algorithm.util.SwapUtil;
 
 public class BidirectionalScannQuickSort implements ISort {
 
-	public <T extends Comparable<T>> void quickSort(T[] source,int l,int u)
+	public static <T extends Comparable<T>> void quickSort(T[] source,int startIndex,int endIndex)
 	{		
 		if (source == null)
 			return;
-		if (u-l < 1)
+		if (endIndex-startIndex < 1)
 			return;
 		
-		T pivot = source[l];
-		int i = l + 1;
-		int j = u;
+		T pivot = source[startIndex];
+		int i = startIndex + 1;
+		int j = endIndex;
 		
 		while(i<=j)
 		{
@@ -30,9 +30,9 @@ public class BidirectionalScannQuickSort implements ISort {
 			}
 		}
 		
-		SwapUtil.swap(source, l, j);
-		quickSort(source,l,j-1);
-		quickSort(source,j+1,u);
+		SwapUtil.swap(source, startIndex, j);
+		quickSort(source,startIndex,j-1);
+		quickSort(source,j+1,endIndex);
 		
 	}
 	

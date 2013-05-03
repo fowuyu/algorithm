@@ -31,11 +31,15 @@ public class SortMain {
 	}
 	
 	public static void main(String[] args) {
-		int MAX = 500000;
+		int MAX = 50000;
 		Integer[] source = prepareData(MAX);
 		
 		test(new QuickSort(),source.clone());
 		test(new BidirectionalScannQuickSort(),source.clone());
+		test(new CombineQuickSortInsertionSort(),source.clone());
+		test(new BubbleSort(),source.clone());
+		test(new SelectionSort(),source.clone());
+		test(new InsertionSort(),source.clone());
 	}
 
 	

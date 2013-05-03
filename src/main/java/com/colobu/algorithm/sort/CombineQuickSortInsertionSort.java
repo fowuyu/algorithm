@@ -2,14 +2,19 @@ package com.colobu.algorithm.sort;
 
 import com.colobu.algorithm.util.SwapUtil;
 
-public class QuickSort implements ISort {
+public class CombineQuickSortInsertionSort implements ISort {
 
+	public static int SIZE =10;
+	
 	public static <T extends Comparable<T>> void quickSort(T[] source,int startIndex,int endIndex)
 	{		
 		if (source == null)
 			return;
-		if (endIndex-startIndex < 1)
+		if (endIndex-startIndex < SIZE)
+		{
+			InsertionSort.insertionSort(source,startIndex,endIndex);
 			return;
+		}
 		
 		T pivot = source[startIndex];
 		SwapUtil.swap(source, startIndex, endIndex);
