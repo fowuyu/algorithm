@@ -67,6 +67,7 @@ public class MergeSort implements ISort
 		System.arraycopy(tempArray, startIndex, source, startIndex, endIndex - startIndex + 1);
 	}
 	    
+	@SuppressWarnings("unchecked")
 	public <T extends Comparable<T>> void sort(T[] source)
 	{
 		T[] tempArray = (T[])Array.newInstance(source[0].getClass(),source.length);

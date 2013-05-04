@@ -8,16 +8,16 @@ public class ShellSort implements ISort
         213331,543749,1355339,3501671,8810089,21521774,
         58548857,157840433,410151271,1131376761,2147483647 };
 	
-	public  static <T extends Comparable<T>> void shellSort(T[] source)
+	public  static <T extends Comparable<T>> void shellSort(T[] source,int startIndex,int endIndex)
 	{
 		int k;
-		int n = source.length;
+		int n = endIndex - startIndex + 1;
 		for (k = 0; gaps[k] < n; k++) ;
 		
 		while(--k >= 0)
 		{
 			int gap = gaps[k];
-			for (int i = gap; i < n; i++)
+			for (int i = startIndex + gap; i < endIndex + 1; i++)
 			{
 				T temp = source[i];
 				int j = i;
@@ -33,7 +33,7 @@ public class ShellSort implements ISort
 	}
 	public <T extends Comparable<T>> void sort(T[] source)
 	{
-		shellSort(source);
+		shellSort(source,0,source.length -1);
 	}
 
 }
