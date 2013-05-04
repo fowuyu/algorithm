@@ -11,22 +11,29 @@ public class QuickSort implements ISort {
 		if (endIndex-startIndex < 1)
 			return;
 		
+		int pivotNewIndex = partition(source, startIndex, endIndex);
+		
+		quickSort(source,startIndex,pivotNewIndex -1);
+		quickSort(source,pivotNewIndex +1,endIndex);
+	}
+
+
+
+	public static <T extends Comparable<T>> int partition(T[] source, int startIndex, int endIndex)
+	{
 		T pivot = source[startIndex];
 		SwapUtil.swap(source, startIndex, endIndex);
-		int storeIndex = startIndex;
+		int pivotNewIndex = startIndex;
 		for(int i=startIndex; i<endIndex; i++)
 		{
 			if (source[i].compareTo(pivot) <= 0)
 			{
-				SwapUtil.swap(source, storeIndex, i);
-				storeIndex++;
+				SwapUtil.swap(source, pivotNewIndex, i);
+				pivotNewIndex++;
 			}
 		}
-		SwapUtil.swap(source, storeIndex, endIndex);
-		
-		
-		quickSort(source,startIndex,storeIndex -1);
-		quickSort(source,storeIndex +1,endIndex);
+		SwapUtil.swap(source, pivotNewIndex, endIndex);
+		return pivotNewIndex;
 	}
 	
 		

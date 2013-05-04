@@ -1,6 +1,5 @@
 package com.colobu.algorithm.sort;
 
-import com.colobu.algorithm.util.SwapUtil;
 
 /**
  * The simplest sort algorithm is not Bubble Sort..., it is not Insertion Sort..., it's <b>Gnome Sort</b>.
