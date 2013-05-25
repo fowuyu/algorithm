@@ -22,11 +22,33 @@ public class TopKSearchMain
 	}
 	
 	public static <T extends Comparable<? super T>> T[] testWithHeap(T[] source,int k) {
-		System.out.println("search the biggest " + k +  " in " + source.length + " elements");
+		System.out.println("search the biggest " + k +  " in " + source.length + " elements by heap");
 		long t = System.currentTimeMillis();
-		T[] topK = TopKSearch.searchTopKBiggest(source, k);
+		T[] topK = HeapTopKSearch.searchTopKBiggest(source, k);
 		t = System.currentTimeMillis() -t;
 		
+		QuickSort.quickSort(topK, 0, k -1);
+		System.out.println("cost:" + t/1000.0 + " seconds, result:" + Arrays.toString(topK));
+		return topK;
+	}
+	
+	public static <T extends Comparable<? super T>> T[] testWithGeneralSelection(T[] source,int k) {
+		System.out.println("search the biggest " + k +  " in " + source.length + " elements by general selection");
+		long t = System.currentTimeMillis();
+		T[] topK = GeneralSelectionTopKSearch.searchTopKBiggest(source, k);
+		t = System.currentTimeMillis() -t;
+
+		QuickSort.quickSort(topK, 0, k -1);
+		System.out.println("cost:" + t/1000.0 + " seconds, result:" + Arrays.toString(topK));
+		return topK;
+	}
+	
+	public static <T extends Comparable<? super T>> T[] testWithQuickSelection(T[] source,int k) {
+		System.out.println("search the biggest " + k +  " in " + source.length + " elements by quick selection");
+		long t = System.currentTimeMillis();
+		T[] topK = QuickSelectTopKSearch.searchTopKBiggest(source, k);
+		t = System.currentTimeMillis() -t;
+
 		QuickSort.quickSort(topK, 0, k -1);
 		System.out.println("cost:" + t/1000.0 + " seconds, result:" + Arrays.toString(topK));
 		return topK;
@@ -38,6 +60,7 @@ public class TopKSearchMain
 		QuickSort.quickSort(source, 0, source.length -1);
 		t = System.currentTimeMillis() -t;
 		
+		@SuppressWarnings("unchecked")
 		T[] topK = (T[])Array.newInstance(source[0].getClass(), k);
 		int index = source.length - k;
 		for (int i = 0; i < k; i++)
@@ -56,6 +79,9 @@ public class TopKSearchMain
 		int MAX = 50000;
 		Integer[] source = prepareData(MAX);
 		testWithHeap(source.clone(),k);
+		testWithGeneralSelection(source.clone(),k);
+		testWithQuickSelection(source.clone(),k);
+		
 		testWithQuicksort(source.clone(),k);
 	}
 

@@ -5,7 +5,7 @@ import java.lang.reflect.Array;
 import com.colobu.datastructure.MaxHeap;
 import com.colobu.datastructure.MinHeap;
 
-public class TopKSearch
+public class HeapTopKSearch
 {
 	public static <T extends Comparable<? super T>> T[] searchTopKSmallest(T[] source, int k) {
 		assert(source != null && source.length > k);
