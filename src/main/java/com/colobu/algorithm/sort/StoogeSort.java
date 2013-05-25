@@ -1,10 +1,10 @@
 package com.colobu.algorithm.sort;
 
-import com.colobu.algorithm.util.SwapUtil;
+import com.colobu.util.SwapUtil;
 
 public class StoogeSort implements ISort
 {
-	public  static <T extends Comparable<T>> void stoogeSort(T[] source,int startIndex,int endIndex)
+	public  static <T extends Comparable<? super T>> void stoogeSort(T[] source,int startIndex,int endIndex)
 	{
 		if (source[endIndex].compareTo(source[startIndex]) < 0)
 			SwapUtil.swap(source, startIndex, endIndex);
@@ -18,7 +18,7 @@ public class StoogeSort implements ISort
 		}
 	}
 	
-	public <T extends Comparable<T>> void sort(T[] source)
+	public <T extends Comparable<? super T>> void sort(T[] source)
 	{
 		stoogeSort(source,0,source.length - 1);
 	}

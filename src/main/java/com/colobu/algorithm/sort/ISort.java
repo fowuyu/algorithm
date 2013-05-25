@@ -1,5 +1,5 @@
 package com.colobu.algorithm.sort;
 
 public interface ISort {
-	<T extends Comparable<T>> void sort(T[] source);
+	<T extends Comparable<? super T>> void sort(T[] source);
 }

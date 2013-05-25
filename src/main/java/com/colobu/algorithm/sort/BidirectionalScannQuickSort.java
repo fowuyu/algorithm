@@ -1,10 +1,10 @@
 package com.colobu.algorithm.sort;
 
-import com.colobu.algorithm.util.SwapUtil;
+import com.colobu.util.SwapUtil;
 
 public class BidirectionalScannQuickSort implements ISort {
 
-	public static <T extends Comparable<T>> void quickSort(T[] source,int startIndex,int endIndex)
+	public static <T extends Comparable<? super T>> void quickSort(T[] source,int startIndex,int endIndex)
 	{		
 		if (source == null)
 			return;
@@ -36,7 +36,7 @@ public class BidirectionalScannQuickSort implements ISort {
 		
 	}
 	
-	public <T extends Comparable<T>> void sort(T[] source) {
+	public <T extends Comparable<? super T>> void sort(T[] source) {
 		quickSort(source,0,source.length-1);
 	}
 

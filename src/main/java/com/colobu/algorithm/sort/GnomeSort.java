@@ -1,6 +1,6 @@
 package com.colobu.algorithm.sort;
 
-import com.colobu.algorithm.util.SwapUtil;
+import com.colobu.util.SwapUtil;
 
 /**
  * The simplest sort algorithm is not Bubble Sort..., it is not Insertion Sort..., it's <b>Gnome Sort</b>.
@@ -14,7 +14,7 @@ import com.colobu.algorithm.util.SwapUtil;
  */
 public class GnomeSort implements ISort
 {
-	public  static <T extends Comparable<T>> void gnomeSort(T[] source,int startIndex,int endIndex)
+	public  static <T extends Comparable<? super T>> void gnomeSort(T[] source,int startIndex,int endIndex)
 	{
 		int i = startIndex;
 		
@@ -31,7 +31,7 @@ public class GnomeSort implements ISort
 	}
 	
 	
-	public <T extends Comparable<T>> void sort(T[] source)
+	public <T extends Comparable<? super T>> void sort(T[] source)
 	{
 		gnomeSort(source,0,source.length - 1);
 	}

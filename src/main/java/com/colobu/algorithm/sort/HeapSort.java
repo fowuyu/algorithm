@@ -1,10 +1,10 @@
 package com.colobu.algorithm.sort;
 
-import com.colobu.algorithm.util.SwapUtil;
+import com.colobu.util.SwapUtil;
 
 public class HeapSort implements ISort
 {
-	public static <T extends Comparable<T>> void heapSort(T[] source, int startIndex, int endIndex)
+	public static <T extends Comparable<? super T>> void heapSort(T[] source, int startIndex, int endIndex)
 	{
 		//build a max heap
 		heapify(source, startIndex,endIndex);
@@ -27,7 +27,7 @@ public class HeapSort implements ISort
 	 * @param startIndex
 	 * @param endIndex
 	 */
-	public static <T extends Comparable<T>> void heapify(T[] source, int startIndex, int endIndex){
+	public static <T extends Comparable<? super T>> void heapify(T[] source, int startIndex, int endIndex){
 		int count = endIndex - startIndex + 1;
 		//from the last non-leaf node to sift down
 		int start = startIndex + (count - 2) / 2; //binary heap
@@ -39,7 +39,7 @@ public class HeapSort implements ISort
 		}
 	}
 	 
-	public static <T extends Comparable<T>> void siftDown(T[] source, int start, int end,int startIndex){
+	public static <T extends Comparable<? super T>> void siftDown(T[] source, int start, int end,int startIndex){
 		int root = start;
 	    int childIndex = startIndex + (root - startIndex) * 2 + 1;  //root*2+1 points to the left child
 	    
@@ -57,7 +57,7 @@ public class HeapSort implements ISort
 		}
 	}
 	
-	public <T extends Comparable<T>> void sort(T[] source)
+	public <T extends Comparable<? super T>> void sort(T[] source)
 	{
 		heapSort(source,0,source.length -1);
 	}

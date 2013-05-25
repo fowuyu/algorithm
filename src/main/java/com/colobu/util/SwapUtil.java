@@ -1,4 +1,4 @@
-package com.colobu.algorithm.util;
+package com.colobu.util;
 
 public class SwapUtil {
 	public static <T> void swap(T[] source,int i,int j)

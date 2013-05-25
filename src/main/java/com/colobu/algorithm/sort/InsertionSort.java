@@ -3,7 +3,7 @@ package com.colobu.algorithm.sort;
 public class InsertionSort implements ISort
 {
 
-	public  static <T extends Comparable<T>> void insertionSort(T[] source,int startIndex,int endIndex)
+	public  static <T extends Comparable<? super T>> void insertionSort(T[] source,int startIndex,int endIndex)
 	{
 		for (int i = startIndex; i <= endIndex; i++)
 		{
@@ -19,7 +19,7 @@ public class InsertionSort implements ISort
 	}
 	
 	
-	public <T extends Comparable<T>> void sort(T[] source)
+	public <T extends Comparable<? super T>> void sort(T[] source)
 	{
 		insertionSort(source,0,source.length-1);
 	}

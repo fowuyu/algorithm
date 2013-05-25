@@ -2,7 +2,7 @@ package com.colobu.algorithm.search;
 
 public class BinarySearch
 {
-	public static <T extends Comparable<T>> int search(T[] sortedSource, T target) {
+	public static <T extends Comparable<? super T>> int search(T[] sortedSource, T target) {
 		int low = 0;
 		int high = sortedSource.length -1;
 		

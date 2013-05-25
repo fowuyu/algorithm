@@ -1,10 +1,10 @@
 package com.colobu.algorithm.sort;
 
-import com.colobu.algorithm.util.SwapUtil;
+import com.colobu.util.SwapUtil;
 
 public class BubbleSort implements ISort
 {
-	public  static <T extends Comparable<T>> void insertionSort(T[] source,int startIndex,int endIndex)
+	public  static <T extends Comparable<? super T>> void insertionSort(T[] source,int startIndex,int endIndex)
 	{
 		boolean swapped = true;
 		int i = endIndex;
@@ -23,7 +23,7 @@ public class BubbleSort implements ISort
 		}
 	}
 	
-	public <T extends Comparable<T>> void sort(T[] source)
+	public <T extends Comparable<? super T>> void sort(T[] source)
 	{
 		insertionSort(source,0,source.length-1);
 	}

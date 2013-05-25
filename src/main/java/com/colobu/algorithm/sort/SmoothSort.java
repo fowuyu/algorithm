@@ -8,7 +8,7 @@ public class SmoothSort implements ISort
 														// 31 bits.
 	};
 
-	public static <T extends Comparable<T>> void smoothSort(T[] source, int startIndex, int endIndex)
+	public static <T extends Comparable<? super T>> void smoothSort(T[] source, int startIndex, int endIndex)
 	{
 		int head = startIndex; // the offset of the first element of the prefix into m
 
@@ -171,7 +171,7 @@ public class SmoothSort implements ISort
 		}
 	}
 
-	public <T extends Comparable<T>> void sort(T[] source)
+	public <T extends Comparable<? super T>> void sort(T[] source)
 	{
 		smoothSort(source,0,source.length - 1);
 	}

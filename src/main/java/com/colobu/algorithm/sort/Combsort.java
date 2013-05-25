@@ -1,12 +1,12 @@
 package com.colobu.algorithm.sort;
 
-import com.colobu.algorithm.util.SwapUtil;
+import com.colobu.util.SwapUtil;
 
 public class Combsort implements ISort
 {
 	private static final float shrink = 1.3f;
 	
-	public  static <T extends Comparable<T>> void combsort(T[] source,int startIndex,int endIndex)
+	public  static <T extends Comparable<? super T>> void combsort(T[] source,int startIndex,int endIndex)
 	{
 	    int i, gap = endIndex - startIndex + 1;
 	    boolean swapped = false;
@@ -28,7 +28,7 @@ public class Combsort implements ISort
 	}
 	
 	
-	public <T extends Comparable<T>> void sort(T[] source)
+	public <T extends Comparable<? super T>> void sort(T[] source)
 	{
 		combsort(source,0,source.length - 1);
 	}

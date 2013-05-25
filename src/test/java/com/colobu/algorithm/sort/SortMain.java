@@ -5,7 +5,7 @@ import java.util.Random;
 
 public class SortMain {
 
-	public static <T extends Comparable<T>> void testWithJDK(T[] source) {
+	public static <T extends Comparable<? super T>> void testWithJDK(T[] source) {
 		System.out.println("test " + source.length +  " elements with Arrays.sort");
 		long t = System.currentTimeMillis();
 		Arrays.sort(source);
@@ -20,7 +20,7 @@ public class SortMain {
 		System.out.println("cost:" + t/1000.0 + " seconds, result:" + result);
 	}
 	
-	public static <T extends Comparable<T>> void test(ISort sort,T[] source) {
+	public static <T extends Comparable<? super T>> void test(ISort sort,T[] source) {
 		System.out.println("test " + source.length +  " elements with " + sort.getClass());
 		long t = System.currentTimeMillis();
 		sort.sort(source);
@@ -40,7 +40,7 @@ public class SortMain {
 		
 		Integer[] source = new Integer[count];
 		for (int i = 0; i < count; i++) {
-			source[i] = rand.nextInt();
+			source[i] = rand.nextInt(Integer.MAX_VALUE);
 		}
 		
 		return source;

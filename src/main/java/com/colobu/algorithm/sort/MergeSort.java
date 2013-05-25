@@ -6,7 +6,7 @@ public class MergeSort implements ISort
 {
 	private static final int INSERTIONSORT_THRESHOLD = 7;
 	 
-	public  static <T extends Comparable<T>> void mergeSort(T[] source,int startIndex,int endIndex,T[] tempArray)
+	public  static <T extends Comparable<? super T>> void mergeSort(T[] source,int startIndex,int endIndex,T[] tempArray)
 	{
 		if (startIndex == endIndex)
 			return;
@@ -29,7 +29,7 @@ public class MergeSort implements ISort
 		merge(source, startIndex, mid + 1, endIndex,tempArray);
 	}
 	
-	private static <T extends Comparable<T>>  void merge(T[] source, int startIndex, int startIndex2, int endIndex,T[] tempArray)
+	private static <T extends Comparable<? super T>>  void merge(T[] source, int startIndex, int startIndex2, int endIndex,T[] tempArray)
 	{
 		
 		int i = startIndex;
@@ -68,7 +68,7 @@ public class MergeSort implements ISort
 	}
 	    
 	@SuppressWarnings("unchecked")
-	public <T extends Comparable<T>> void sort(T[] source)
+	public <T extends Comparable<? super T>> void sort(T[] source)
 	{
 		T[] tempArray = (T[])Array.newInstance(source[0].getClass(),source.length);
 		mergeSort(source,0,source.length -1,tempArray);
