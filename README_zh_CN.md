@@ -29,7 +29,7 @@ http://en.wikipedia.org/wiki/List_of_algorithms
 - **搜索**
    ##### 序列查找算法 #####
 	1. 线性查找
-	2. kth查找
+	2. kth查找 ([wiki百科](http://en.wikipedia.org/wiki/Selection_algorithm))
 	3. 二分查找/折半查找
 	4. 三分查找
 
